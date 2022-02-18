@@ -15,7 +15,7 @@ export class StockService {
   ) { }
 
   private async createStock(createStockDto: CreateStockDto, action: StockAction, ref: number): Promise<Stock> {
-    const newStock = this.stockRepo.create({ ...createStockDto, action: StockAction.DEPOSIT, ref: 0 });
+    const newStock = this.stockRepo.create({ ...createStockDto, action, ref: 0 });
     return await this.stockRepo.save(newStock);
   }
 
